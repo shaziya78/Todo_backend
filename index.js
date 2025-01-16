@@ -15,9 +15,10 @@ app.use(cors());
 app.use(express.json());
 
 const corsOptions = {
-  origin: "https://todolist-frontend-beta-bay.vercel.app/", // Your deployed frontend domain
+  origin: ["https://todolist-frontend-beta-bay.vercel.app/", "*"],
+  credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true, // Allow cookies or authentication if needed
+  allowedHeaders: ["*"],
 };
 
 app.use(cors(corsOptions));
