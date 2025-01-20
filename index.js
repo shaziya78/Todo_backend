@@ -7,7 +7,7 @@ const cors = require("cors");
 const connectDB = require("./config/db");
 const taskRoutes = require("./routes/taskRoutes");
 const errorHandler = require("./middleware/errorHandler");
-
+const userRoute =require("./routes/userRoutes");
 connectDB();
 const app = express();
 
@@ -25,6 +25,8 @@ app.use(cors(corsOptions));
 
 // Routes
 app.use("/api/tasks", taskRoutes);
+
+app.use("/api/user",userRoute );
 
 // Error Middleware
 app.use(errorHandler);
